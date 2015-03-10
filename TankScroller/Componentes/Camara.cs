@@ -83,7 +83,7 @@ namespace TankScroller.Componentes
         /// <param name="pos"></param>
         /// <param name="size"></param>
         /// <returns></returns>
-        static public Rectangle WorldSizePixelRectangle(Vector2 pos, Vector2 size)
+        static public Rectangle WorldSize2PixelRectangle(Vector2 pos, Vector2 size)
         {
             Camara.calcularRatio();
             Vector2 pixelPos = WorldPoint2Pixels(pos);
