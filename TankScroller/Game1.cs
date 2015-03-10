@@ -19,6 +19,7 @@ namespace TankScroller
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Sprite tank;
 
         public Game1()
             : base()
@@ -36,6 +37,13 @@ namespace TankScroller
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            graphics.PreferredBackBufferWidth = 600;
+            graphics.PreferredBackBufferHeight = 500;
+            graphics.ApplyChanges();
+
+            Camara.Graphics = graphics;
+            Camara.Target = Vector2.Zero;
+            Camara.WorldWith = 10;
 
             base.Initialize();
         }
@@ -48,6 +56,7 @@ namespace TankScroller
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            tank = new Sprite(Content, "tank_body");
 
             // TODO: use this.Content to load your game content here
         }
@@ -84,7 +93,9 @@ namespace TankScroller
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            tank.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
