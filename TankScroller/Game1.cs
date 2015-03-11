@@ -19,7 +19,7 @@ namespace TankScroller
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Sprite tank;
+        Cena cena;
 
         public Game1()
             : base()
@@ -56,9 +56,10 @@ namespace TankScroller
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            tank = new Sprite(Content, "tank_body");
 
-            // TODO: use this.Content to load your game content here
+            cena = new Cena(spriteBatch);
+            cena.AddSprite(new Sprite(Content, "tank_body"));
+
         }
 
         /// <summary>
@@ -80,7 +81,7 @@ namespace TankScroller
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            cena.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -93,9 +94,7 @@ namespace TankScroller
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
-            tank.Draw(spriteBatch);
-            spriteBatch.End();
+            cena.Draw(gameTime);
 
             base.Draw(gameTime);
         }

@@ -8,12 +8,13 @@ using System.Text;
 
 namespace TankScroller.Componentes
 {
-    class Sprite
+    public class Sprite
     {
         private Texture2D image;
         private Vector2 position;
         private Vector2 size;
         private float rotation;
+        private Cena cena;
 
         /// <summary>
         /// Construtor de sprite
@@ -29,13 +30,27 @@ namespace TankScroller.Componentes
         }
 
         /// <summary>
+        /// Seta a cena a que este sprite pertence
+        /// </summary>
+        /// <param name="cena">Cena</param>
+        public void SetCena(Cena cena)
+        {
+            this.cena = cena;
+        }
+
+        public void Update(GameTime gameTime)
+        {
+
+        }
+
+        /// <summary>
         /// Desenha a sprite no ecrã
         /// </summary>
         /// <param name="spriteBatch">Instância de spriteBatch</param>
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime)
         {
             Rectangle pos = Camara.WorldSize2PixelRectangle(this.position, this.size);
-            spriteBatch.Draw(this.image, pos, Color.White);
+            cena.SpriteBatch.Draw(this.image, pos, Color.White);
         }
     }
 }
