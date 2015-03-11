@@ -68,5 +68,13 @@ namespace TankScroller.Componentes
                 spriteBatch.End();
             }
         }
+
+        public void Dispose()
+        {
+            foreach (Sprite sprite in sprites)
+            {
+                sprite.Dispose();
+            }
+        }
     }
 }

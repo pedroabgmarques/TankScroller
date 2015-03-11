@@ -14,7 +14,7 @@ namespace TankScroller.Componentes
         private Vector2 position;
         private Vector2 size;
         private float rotation;
-        private Cena cena;
+        protected Cena cena;
 
         /// <summary>
         /// Construtor de sprite
@@ -33,7 +33,7 @@ namespace TankScroller.Componentes
         /// Seta a cena a que este sprite pertence
         /// </summary>
         /// <param name="cena">Cena</param>
-        public void SetCena(Cena cena)
+        public virtual void SetCena(Cena cena)
         {
             this.cena = cena;
         }
@@ -47,10 +47,15 @@ namespace TankScroller.Componentes
         /// Desenha a sprite no ecrã
         /// </summary>
         /// <param name="spriteBatch">Instância de spriteBatch</param>
-        public void Draw(GameTime gameTime)
+        public virtual void Draw(GameTime gameTime)
         {
             Rectangle pos = Camara.WorldSize2PixelRectangle(this.position, this.size);
             cena.SpriteBatch.Draw(this.image, pos, Color.White);
+        }
+
+        public void Dispose()
+        {
+            this.image.Dispose();
         }
     }
 }

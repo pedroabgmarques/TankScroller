@@ -25,6 +25,7 @@ namespace TankScroller
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.GraphicsProfile = GraphicsProfile.HiDef;
             Content.RootDirectory = "Content";
         }
 
@@ -58,7 +59,7 @@ namespace TankScroller
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             cena = new Cena(spriteBatch);
-            cena.AddSprite(new Sprite(Content, "tank_body"));
+            cena.AddSprite(new Tank(Content));
 
         }
 
@@ -68,7 +69,8 @@ namespace TankScroller
         /// </summary>
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+            spriteBatch.Dispose();
+            cena.Dispose();
         }
 
         /// <summary>

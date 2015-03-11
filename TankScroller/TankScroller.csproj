@@ -38,6 +38,7 @@
     <Compile Include="Componentes\Camara.cs" />
     <Compile Include="Componentes\Cena.cs" />
     <Compile Include="Componentes\Sprite.cs" />
+    <Compile Include="Componentes\Tank.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
