@@ -44,7 +44,7 @@ namespace TankScroller
 
             Camara.Graphics = graphics;
             Camara.Target = Vector2.Zero;
-            Camara.WorldWith = 10;
+            Camara.WorldWith = 5;
 
             base.Initialize();
         }

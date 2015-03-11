@@ -11,7 +11,7 @@ namespace TankScroller.Componentes
     public class Sprite
     {
         private Texture2D image;
-        private Vector2 position;
+        protected Vector2 position;
         private Vector2 size;
         private float rotation;
         protected Cena cena;
@@ -38,7 +38,7 @@ namespace TankScroller.Componentes
             this.cena = cena;
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
 
         }
@@ -56,6 +56,11 @@ namespace TankScroller.Componentes
         public void Dispose()
         {
             this.image.Dispose();
+        }
+
+        public void SetPosition(Vector2 position)
+        {
+            this.position = position;
         }
     }
 }
