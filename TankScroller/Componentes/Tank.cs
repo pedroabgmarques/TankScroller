@@ -16,6 +16,7 @@ namespace TankScroller.Componentes
         public Tank(ContentManager content) : base(content, "tank_body")
         {
             this.turret = new Sprite(content, "tank_turret");
+            this.turret.SetRotation(MathHelper.PiOver4);
         }
 
         public override void Draw(GameTime gameTime)
@@ -43,6 +44,8 @@ namespace TankScroller.Componentes
             }
 
             turret.SetPosition(this.position);
+
+            Camara.Target = this.position;
 
             turret.Update(gameTime);
             base.Update(gameTime);

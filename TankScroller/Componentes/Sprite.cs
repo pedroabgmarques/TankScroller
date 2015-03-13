@@ -61,7 +61,13 @@ namespace TankScroller.Componentes
         public virtual void Draw(GameTime gameTime)
         {
             Rectangle pos = Camara.WorldSize2PixelRectangle(this.position, this.size);
-            cena.SpriteBatch.Draw(this.image, pos, Color.White);
+            cena.SpriteBatch.Draw(this.image, pos, null, Color.White,
+                this.rotation, new Vector2(image.Width / 2, image.Height / 2), SpriteEffects.None, 0);
+        }
+
+        public virtual void SetRotation(float r)
+        {
+            this.rotation = r;
         }
 
         public void Dispose()
@@ -72,6 +78,12 @@ namespace TankScroller.Componentes
         public void SetPosition(Vector2 position)
         {
             this.position = position;
+        }
+
+        public Sprite At(Vector2 p)
+        {
+            this.SetPosition(p);
+            return this;
         }
     }
 }

@@ -37,7 +37,7 @@ namespace TankScroller
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferWidth = 600;
             graphics.PreferredBackBufferHeight = 600;
             graphics.ApplyChanges();
 
@@ -60,7 +60,9 @@ namespace TankScroller
             spriteBatch = new SpriteBatch(GraphicsDevice);
             cena = new Cena(spriteBatch);
 
-            cena.AddSprite(new Sprite(Content, "sand2").Scl(Camara.WorldWith));
+            cena.AddSprite(new Sprite(Content, "sand2")
+                .Scl(Camara.WorldWith)
+                .At(new Vector2(0f, (4008 - graphics.PreferredBackBufferHeight) / 2 * Camara.WorldWith / 600)));
             cena.AddSprite(new Tank(Content));
         }
 

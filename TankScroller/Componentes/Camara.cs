@@ -92,10 +92,6 @@ namespace TankScroller.Componentes
             int pixelWidth = (int)((size.X * Camara.ratio) + 0.5f);
             int pixelHeight = (int)((size.Y * Camara.ratio) + 0.5f);
 
-            //projetar para o centro da sprite
-            pixelPos.X -= pixelWidth / 2;
-            pixelPos.Y -= pixelHeight / 2;
-
             return new Rectangle((int)pixelPos.X, (int)pixelPos.Y, pixelWidth, pixelHeight);
         }
 
