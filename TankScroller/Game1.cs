@@ -25,7 +25,6 @@ namespace TankScroller
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.GraphicsProfile = GraphicsProfile.HiDef;
             Content.RootDirectory = "Content";
         }
 
@@ -38,13 +37,15 @@ namespace TankScroller
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            graphics.PreferredBackBufferWidth = 600;
-            graphics.PreferredBackBufferHeight = 500;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 600;
             graphics.ApplyChanges();
+
+            graphics.GraphicsProfile = GraphicsProfile.HiDef;
 
             Camara.Graphics = graphics;
             Camara.Target = Vector2.Zero;
-            Camara.WorldWith = 5;
+            Camara.WorldWith = 10;
 
             base.Initialize();
         }
@@ -57,10 +58,10 @@ namespace TankScroller
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             cena = new Cena(spriteBatch);
-            cena.AddSprite(new Tank(Content));
 
+            cena.AddSprite(new Sprite(Content, "sand2").Scl(Camara.WorldWith));
+            cena.AddSprite(new Tank(Content));
         }
 
         /// <summary>

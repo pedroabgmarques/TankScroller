@@ -24,9 +24,20 @@ namespace TankScroller.Componentes
         public Sprite(ContentManager content, String assetName)
         {
             this.rotation = 0f;
-            this.size = new Vector2(1, 1);
             this.position = Vector2.Zero;
             this.image = content.Load<Texture2D>(assetName);
+            this.size = new Vector2(1f, (float)image.Height / (float)image.Width);
+        }
+
+        public virtual void Scale(float scale)
+        {
+            this.size *= scale;
+        }
+
+        public Sprite Scl(float scale)
+        {
+            this.Scale(scale);
+            return this;
         }
 
         /// <summary>
